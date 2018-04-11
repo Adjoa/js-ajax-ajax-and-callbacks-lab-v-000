@@ -25,6 +25,8 @@
     <div class="flexbox-container">
       <div>
         <h3>Repositories</h3>
+        <input type="text" id="searchTerms">
+        <a href="#" onclick="showRepositories()">Search</a>
         <div id="results"></div>
       </div>
       <div>
@@ -33,6 +35,22 @@
       </div>
     </div>
     <script src="jquery-3.1.0.min.js"></script>
+    <script src="handlebars-1.0.rc.1.min.js"></script>
     <script src="index.js"></script>
+    <!-- Handlebars Templates -->
+    <script id="repository-template" type="text/x-handlebars-template">
+      <ul>
+        {{#each this}}
+        <li>
+          <h2><a href="{{html_url}}">{{name}}</a></h2>
+          <section>
+            <header><h4>Created By <a href="{{owner.url}}">{{owner.login}}</a></h4></header>
+            <img src="{{owner.avatar_url}}" height="32" width="32">
+          </section>
+          <p>Description: {{description}}</p>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
   </body>
 </html>

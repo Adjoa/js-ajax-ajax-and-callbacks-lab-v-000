@@ -10,6 +10,7 @@ describe('index.js', () => {
   const scripts = [
     path.resolve(__dirname, '..', 'index.js'),
     path.resolve(__dirname, '..', 'jquery-3.1.0.min.js')
+    path.resolve(__dirname, '..', 'handlebars-1.0.rc.1.min.js')
   ]
 
   let $
@@ -17,6 +18,7 @@ describe('index.js', () => {
 
   before(() => {
     window.$ = require('jquery')
+    window.$ = require('handlebars')
   })
 
   describe('index.html', () => {
